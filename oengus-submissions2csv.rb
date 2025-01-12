@@ -7,7 +7,8 @@ def user2runner(user, user_label)
 end
 
 CSV.instance($stdout, quote_char: '"', force_quotes: true){|csv_out|
-  csv_out << ["runner","game_name","game_description","game_console","game_ratio","category_name","category_description","category_type","category_estimate","category_video","status"]
+  csv_out << ["runner","game_name","game_description","game_console","game_ratio","category_name","category_description","category_type","category_estimate","category_video","status","availabilities"
+]
   submissions.each{|submission|
     /href="\/user\/(?<user>.+?)"\starget="_self">(?<user_label>.+?)<\/a>/ =~ submission
     submission_rest = $'
